@@ -1,0 +1,143 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{apa/apasortcite//global/global}
+    \entry{RinconIntro}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=97d6299d072611de6a8bb9a6a3ea8f2f}{%
+           family={Rincón},
+           familyi={R\bibinitperiod},
+           given={Luis},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Universidad Nacional Autónoma de México}%
+      }
+      \strng{namehash}{97d6299d072611de6a8bb9a6a3ea8f2f}
+      \strng{fullhash}{97d6299d072611de6a8bb9a6a3ea8f2f}
+      \strng{bibnamehash}{97d6299d072611de6a8bb9a6a3ea8f2f}
+      \strng{authorbibnamehash}{97d6299d072611de6a8bb9a6a3ea8f2f}
+      \strng{authornamehash}{97d6299d072611de6a8bb9a6a3ea8f2f}
+      \strng{authorfullhash}{97d6299d072611de6a8bb9a6a3ea8f2f}
+      \field{extraname}{1}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9786070263330}
+      \field{title}{Introducción a la probabilidad}
+    \endentry
+    \entry{RincónInterm}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=97d6299d072611de6a8bb9a6a3ea8f2f}{%
+           family={Rincón},
+           familyi={R\bibinitperiod},
+           given={Luis},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Univesidad Nacional Autónoma de México}%
+      }
+      \strng{namehash}{97d6299d072611de6a8bb9a6a3ea8f2f}
+      \strng{fullhash}{97d6299d072611de6a8bb9a6a3ea8f2f}
+      \strng{bibnamehash}{97d6299d072611de6a8bb9a6a3ea8f2f}
+      \strng{authorbibnamehash}{97d6299d072611de6a8bb9a6a3ea8f2f}
+      \strng{authornamehash}{97d6299d072611de6a8bb9a6a3ea8f2f}
+      \strng{authorfullhash}{97d6299d072611de6a8bb9a6a3ea8f2f}
+      \field{extraname}{2}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9703242693, 9789703242696}
+      \field{title}{Curso intermedio de probabilidad}
+      \field{year}{2007}
+    \endentry
+  \enddatalist
+  \datalist[entry]{apa/global//global/global}
+    \entry{RinconIntro}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=97d6299d072611de6a8bb9a6a3ea8f2f}{%
+           family={Rincón},
+           familyi={R\bibinitperiod},
+           given={Luis},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Universidad Nacional Autónoma de México}%
+      }
+      \strng{namehash}{97d6299d072611de6a8bb9a6a3ea8f2f}
+      \strng{fullhash}{97d6299d072611de6a8bb9a6a3ea8f2f}
+      \strng{bibnamehash}{97d6299d072611de6a8bb9a6a3ea8f2f}
+      \strng{authorbibnamehash}{97d6299d072611de6a8bb9a6a3ea8f2f}
+      \strng{authornamehash}{97d6299d072611de6a8bb9a6a3ea8f2f}
+      \strng{authorfullhash}{97d6299d072611de6a8bb9a6a3ea8f2f}
+      \field{extraname}{1}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9786070263330}
+      \field{title}{Introducción a la probabilidad}
+    \endentry
+    \entry{RincónInterm}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=97d6299d072611de6a8bb9a6a3ea8f2f}{%
+           family={Rincón},
+           familyi={R\bibinitperiod},
+           given={Luis},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Univesidad Nacional Autónoma de México}%
+      }
+      \strng{namehash}{97d6299d072611de6a8bb9a6a3ea8f2f}
+      \strng{fullhash}{97d6299d072611de6a8bb9a6a3ea8f2f}
+      \strng{bibnamehash}{97d6299d072611de6a8bb9a6a3ea8f2f}
+      \strng{authorbibnamehash}{97d6299d072611de6a8bb9a6a3ea8f2f}
+      \strng{authornamehash}{97d6299d072611de6a8bb9a6a3ea8f2f}
+      \strng{authorfullhash}{97d6299d072611de6a8bb9a6a3ea8f2f}
+      \field{extraname}{2}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9703242693, 9789703242696}
+      \field{title}{Curso intermedio de probabilidad}
+      \field{year}{2007}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

@@ -1,0 +1,15 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {part}{I\hspace {1em}Repaso Probabilidad y estadística.}{1}{part.1}%
+\contentsline {section}{\numberline {0.1}Motivación}{3}{section.0.1}%
+\contentsline {chapter}{\numberline {1}Descripción probabilista}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Variable Aleatoria}{5}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Descripción probabilística.}{5}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Enfoque Frecuentista}{6}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Enfoque Axiomático.}{6}{subsection.1.2.2}%
+\contentsline {subsubsection}{Probabilidad condicional}{7}{section*.6}%
+\contentsline {subsubsection}{Fórmula de completez de la probabilidad (o probabilidad total)}{8}{section*.7}%
+\contentsline {subsection}{\numberline {1.2.3}Distribuciones de probabilidad.}{9}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}Distribución acumulativa.}{9}{subsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.2.5}Función característica.}{11}{subsection.1.2.5}%
+\contentsline {subsection}{\numberline {1.2.6}Teorema del limite central}{12}{subsection.1.2.6}%
+\contentsline {subsubsection}{Distribución Gaussiana (Normal).}{12}{section*.10}%

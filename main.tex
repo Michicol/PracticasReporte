@@ -1,0 +1,91 @@
+\documentclass[11pt, twoside, openright]{book}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{multicol} % Para columnas
+\usepackage{graphicx}
+\usepackage{subcaption} % Para subfiguras
+\usepackage {mwe}% or load ’ graphicx ’ and ’ b l ind tex t ’ manually
+%--------------Para graficos--------------
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usetikzlibrary {datavisualization.formats.functions}
+\usetikzlibrary {petri,positioning}
+\usetikzlibrary {arrows.meta}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{patterns}
+\usepgfplotslibrary{fillbetween}
+%----------------------------------------
+
+\usepackage[hidelinks]{hyperref}
+\usepackage[backend=biber, style=apa]{biblatex}
+\addbibresource{referencias.bib}
+
+%Recuadros de colores
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox} % Para los recuadros
+
+% Definición de un color personalizado para las cajas
+\definecolor{myrosa}{RGB}{242, 94, 122}
+\definecolor{myvino}{RGB}{166,10,51}
+\definecolor{myblue}{RGB}{14,105,115}
+\definecolor{myblueS}{RGB}{17,140,140}
+\definecolor{mycafe}{RGB}{140,74,50}
+%---------------------
+\definecolor{mygreen}{RGB}{106,140,55}
+\definecolor{mycafeS}{RGB}{166,119,78}
+\definecolor{mycafeF}{RGB}{89,46,21}
+\definecolor{mynaranja}{RGB}{166,48,5}
+%\definecolor{migreen}{HTML}{35DB9A} 
+%\tcbset{colback=myblue, colframe=blue!75!black, boxsep=5pt, arc=4pt, boxrule=1pt}
+
+% Integración con Gnuplot
+
+
+% Configuración de encabezados
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\leftmark}
+\fancyhead[LO]{\rightmark}
+
+% Entornos matemáticos
+\newtheorem{teorema}{Teorema}[chapter]
+\newtheorem{definicion}{Definición}[section]
+\newtheorem{ejemplo}{Ejemplo}[section]
+
+% Metadatos
+\title{Notas Practicas profesionales.}
+\author{Luis Clemente Michicol Martinez}
+\date{\today}
+
+\begin{document}
+
+\frontmatter
+\maketitle
+%\include{prefacio}
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+
+\mainmatter
+\part{Repaso Probabilidad y estadística.}
+\include{capitulos/introduccion}
+\include{capitulos/capitulo1}
+%\include{capitulos/capitulo2}
+
+%\appendix
+%\include{apendices/apendiceA}
+
+\backmatter
+\printbibliography[title=Referencias Bibliográficas]
+\include{indices}
+
+\end{document}

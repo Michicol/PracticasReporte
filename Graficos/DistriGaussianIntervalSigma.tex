@@ -1,0 +1,43 @@
+\begin{tikzpicture}[
+    declare function={
+        normal(\x,\mu,\sigma) = 1/(\sigma*sqrt(2*pi))*exp(-(\x-\mu)^2/(2*\sigma^2));
+    }
+]
+    \begin{axis}[
+        axis lines = middle,
+        ylabel = {$f(x)$},
+        xlabel = {$x$},
+        ymax = 0.45,
+        ytick = \empty,        % Elimina las marcas del eje Y
+        yticklabels = \empty,
+        xmin = 0,
+        xmax = 8,
+        domain = 0:8,
+        xtick = {1,2,3,4,5,6,7},
+        xticklabels = {$-3\sigma$, $-2\sigma$, $-\sigma$, $\mu$, $\sigma$, $2\sigma$, $3\sigma$},
+        xticklabel style={rotate=45, anchor=east, font=\footnotesize},
+       % grid = major,
+        %grid style = {dashed, gray!30}
+    ]
+    
+    \def\muu{4}
+    \def\sigmaa{1}
+    
+    % Gráfica de la distribución normal
+    \addplot[color=mygreen, thick, samples=80, smooth] {normal(x,\muu,\sigmaa)};
+    
+    % Ciclo for para marcar los intervalos sigma (VERSIÓN CORREGIDA)
+    \foreach \n in {-3,-2,-1,0,1,2,3} {
+        \pgfmathsetmacro\xpos{\muu + \n*\sigmaa}
+        \pgfmathsetmacro\ypos{normal(\xpos, \muu, \sigmaa)}
+        
+        % Línea vertical punteada
+        \addplot[dashed, black] coordinates {(\xpos, 0)  (\xpos, \ypos)};
+    }
+    
+    % Etiqueta para el valor máximo (OPCIONAL)
+    % \node[above] at ({\muu}, {normal(\muu, \muu, \sigmaa)}) 
+    %    {$\dfrac{1}{\sigma\sqrt{2\pi}}$};
+    
+    \end{axis}
+\end{tikzpicture}

@@ -1,0 +1,24 @@
+\chapter{Apéndice: Demostraciones Adicionales}
+\label{ap:demostraciones}
+
+\section{Demostración del Teorema X}
+% Combinación TikZ + Gnuplot
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+    % Ejes con TikZ
+    \draw[->, thick] (0,0) -- (5,0) node[right] {$\theta$};
+    \draw[->, thick] (0,-1) -- (0,1.5) node[above] {$y$};
+    
+    % Gráfico Gnuplot incrustado
+    \begin{gnuplot}[scale=0.8]
+        set samples 500
+        plot [0:4*pi] sin(3*x)*cos(5*x) with lines
+    \end{gnuplot}
+    
+    % Anotaciones con TikZ
+    \node[red] at (2.5,1) {$\sin(3\theta)\cos(5\theta)$};
+    \draw[dashed] (pi,-1) -- (pi,1) node[above] {$\pi$};
+\end{tikzpicture}
+\caption{Combinación de TikZ y Gnuplot}
+\end{figure}

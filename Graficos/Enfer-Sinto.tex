@@ -1,0 +1,38 @@
+\tikzset{
+    mynode/.style={
+        circle, 
+        draw=black, 
+        fill=black, 
+        minimum size=1mm,
+        inner sep=0pt
+    }
+}
+
+
+\begin{tikzpicture}[scale=1, transform shape]
+      \node[mynode=1,label=above:$x_1$]        (x1) {};
+      \node[mynode=1, label = above:$x_2$] (x2) [right=of x1]{};
+      \node[right=of x2] (xdots) {$\cdots$};
+      \node[mynode=1,right=of xdots,label=above:$x_i$] (xi) {};
+      %enfermedades
+      \node[mynode=1,label=below:$s_1$,below=of x1] (s1) {};
+      \node[mynode=1,label=below:$s_2$,right=of s1] (s2) {};
+      \node[right=of s2] (sdots) {$\cdots$};
+      \node[mynode = 1,label=below:$s_k$,right=of sdots](sk) {};
+
+      % Conexiones de x1 a todos los s
+    \foreach \s in {s1,s2,sk} {
+        \draw[->] (x1) -- (\s);
+    }
+
+% Conexiones de x2 a todos los s
+    \foreach \s in {s1,s2,sk} {
+        \draw[->,orange] (x2) -- (\s);
+    }
+
+% Conexiones de xn a todos los s
+    \foreach \s in {s1,s2,sk} {
+        \draw[->,purple] (xi) -- (\s);
+    }
+      
+\end{tikzpicture}

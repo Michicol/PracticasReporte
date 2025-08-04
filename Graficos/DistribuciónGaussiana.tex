@@ -1,0 +1,31 @@
+\begin{tikzpicture}[
+declare function={
+        normal(\x,\mu,\sigma) = 1/(\sigma*sqrt(2*pi))*exp(-(\x-\mu)^2/(2*\sigma^2));
+    }
+]
+	\begin{axis}[axis lines = middle,
+	ylabel = {$f(x)$},
+	xlabel={$x$},
+	%y domain = -2:1.3,
+	ymax = 0.45,
+        xtick = 4,
+        xticklabels = $\mu$,
+        ytick = \empty,        % Elimina las marcas del eje Y
+        yticklabels = \empty,
+	%ytick = 0.5,
+	%extra x ticks = {0.5},
+	%extra x tick labels = {$X$}
+    ]
+    \def\muu{4}
+    \def\sigmaa{1}
+		\addplot[name path=gaussian,color= mygreen,thick, samples=80, smooth, domain=0:8]
+		{normal(x,\muu,\sigmaa)};
+		\addplot[dashed, black, thick] coordinates {(4,0) (4,normal(\muu,\muu,\sigmaa)};
+        \pgfmathsetmacro\ySigma{normal(\muu+\sigmaa,\muu,\sigmaa)}
+            \draw[dashed, black, thick] (axis cs: 4,\ySigma) -- (axis cs: \muu+\sigmaa,\ySigma) 
+    node[midway, above] {$\sigma$}; 
+		%\node[scale=0.8] at (axis cs:-0.3,0.3) {$P(X\leq x)$};
+		
+	\end{axis}
+\end{tikzpicture}
+

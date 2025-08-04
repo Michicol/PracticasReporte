@@ -1,0 +1,482 @@
+\chapter{Descripción probabilista}
+\label{cap:cap1}
+
+\section{Variable Aleatoria}
+
+De manera informal, y para entender el concepto sin la necesidad de ser abstracto, un \textbf{variable aleatoria} consiste en el resultado de algún proceso o \textbf{evento} del cual no sabemos todos los detalle que influyen en su descripción. 
+
+La importancia de este concepto, es que pese a la ignorancia de lo que puede o no influir, se hace uso de la herramienta estadística para tratar de modelar estas variables aleatorias, y así poder hacer predicciones sobre estas. Esto es de una manera muy simplificada y poco formal.
+
+Entonces se puede definir una variable aleatoria de la siguiente manera.
+\begin{definicion}
+    [Variable aleatoria]Se define una variable aleatoria, como una función (o un mapeo) que nos lleva del espacio de resultados fundamentales (o espacio muestral), a  de los reales 
+$$X: \Omega \rightarrow \mathbb{R}$$
+\end{definicion}
+
+Si se quiere profundizar con mayor formalidad se puede buscar en la siguiente referencias \cite{RincónInterm}
+
+%\newpage
+
+\section{Descripción probabilística.}
+
+Se define el \textbf{conjunto de resultados fundamentales}\footnote{También es conocido como \textbf{espacio muestral}} como.
+
+\begin{equation*}
+    \Omega = \{r_1,r_2,\dots,r_n\}
+\end{equation*}
+
+El objetivo de este conjunto es \textbf{agrupar a todos los posibles resultados} de un experimento.
+
+Otro concepto de suma importancia son los \textbf{eventos}, los cuales consisten en subconjuntos del espacio muestral. Es decir, consideré un conjunto de varios eventos.
+
+\begin{equation*}
+    \mathcal{E} = \{\{r_i\},\{r_i,r_j\},\dots\}
+\end{equation*}
+Donde cada subconjunto se puede renombrar quedando de la siguiente manera.
+
+\begin{equation*}
+    \mathcal{E} = \{\mathcal{E}_1,\mathcal{E}_2,\dots,\mathcal{E}_n\}
+\end{equation*}
+
+Una vez dado los anteriores conceptos, uno se puede preguntar cómo se puede asignar probabilidades a eventos?. Y aquí es donde entran tres tipos de enfoques, \textbf{clásico},\textbf{geométrico},\textbf{frecuentista} \textbf{subjetiva} y  \textbf{axiomático}, de los cuales se hablara únicamente de los enfoques frecuentistas, se puede ver el texto de \cite{RinconIntro}, para tener información acerca de los enfoques que no se abordan.
+
+\subsection{Enfoque Frecuentista}
+
+En este caso se considera hacer $N$ repeticiones de un experimento aleatorio, de los cuales se hace el conteo de las veces (=$m_i$) que se obtuvo cierto resultado $r_i$, entonces, lo que considera el enfoque frecuentista para asignar probabilidad al resultado $r_i$ es lo siguiente.
+
+\begin{equation*}
+    P(r_i) = \lim_{N\to \infty}\frac{m_i}{N}
+\end{equation*}
+
+Para este enfoque existen varios problemas, el más critico y principal, es el hecho de que requiere que $N\to \infty$, es decir el experimento se requiere repetir infinidad de veces o al menos una cantidad muy grande de repeticiones, lo cual lo hace imposible hacer, y otro gran problema, es que las repeticiones de los experimentos aleatorios tiene que ser \textbf{bajo las mismas condiciones}, lo cual se puede notar que supone igualmente un reto bastante grande.
+
+\subsection{Enfoque Axiomático.}
+
+En este enfoque, en lo que se centra es en establecer reglas que cumplan el cálculo de probabilidades, las cuales están dadas por los siguientes axiomas, dichos axiomas los propuso \textbf{Andrey Nikolaevich Kolmogorov}.
+
+
+
+\begin{tcolorbox}[colback=mycafeF!5!white,colframe=mycafeF,title=\textbf{Axiomas de la probabilidad}]
+Consideramos un evento $A$, y $P$ un mapeo que asigna un elemento de $\mathbb{R}$ al evento $A$.\footnote{Es importante no confundir el mapeo $P$ con el mapeo de una variable aleatoria $X$, ya que no son lo mismo, lo que principalmente los distingue es que $P$ debe cumplir los 3 postulados vistos.}
+\begin{equation*}
+    P:A\subset \Omega \rightarrow\mathbb{R}
+\end{equation*}
+
+\begin{enumerate}
+    \item $0\leq P(A)\leq 1$
+    \item $P(\Omega) = 1$
+    \item $P(\bigcup_{i=1}^k A_i) = \sum_{i=1}^kP(A_i)$
+\end{enumerate}
+
+Además cabe destacar que el conjunto en el que se asigna un elemento de $\mathbb{R}$ esta restringido al intervalo $[0,1]$
+\label{eq:AxiomasProba}
+\end{tcolorbox}
+
+Como primer hipótesis de trabajo se considera el \textbf{postulado de iguales probabilidades a priori}(PEAPP), el dice que todos los resultados del espacio $\Omega$ tienen la misma probabilidad de que ocurran, lo cual genera que al graficar su distribución se vea como se muestra en la Figura \ref{fig:PEAPP}
+%--------Grafico------------
+\begin{figure}[ht]
+    \centering
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = left,
+    xlabel = $r$,
+    ylabel = {$P(r)$},
+    ymin = 0,
+    ymax = 1.1,
+    xmin = 0,
+    xmax = 5.5,
+    xtick = {1,4},
+    xticklabels = {$r_1$,$r_i$},
+    ytick = {0,1/2},
+    yticklabels = {0,$P=\frac{1}{n}$},
+    enlargelimits = upper,
+    clip = false
+]
+
+% Distribución uniforme
+\addplot [
+    very thick,
+    mygreen,
+    jump mark mid
+] coordinates {
+    (0,1/2)
+    (1,1/2)
+    (1,0.5)
+    (4,0.5)
+    (4,1/2)
+    (5.5,1/2)
+};
+
+% Área bajo la curva
+\path[pattern = north east lines, pattern color = mynaranja!35, draw = none] 
+    (1,0) -- (1,0.5) -- (4,0.5) -- (4,0) -- cycle;
+
+% Líneas discontinuas para los parámetros
+\draw[dashed, gray] (1,0) -- (1,1/2);
+\draw[dashed, gray] (4,0) -- (4,1/2);
+\draw[dashed, gray] (0,1/2) -- (4,1/2);
+
+% Etiquetas
+\node at (2.8,1.1+0.2) {Probabilidad constante};
+%\node at (-0.8,1/2) {$P=\frac{1}{n}$};
+%\node[below] at (1,0) {$r_1$};
+%\node[below] at (4,0) {$r_2$};
+
+\end{axis}
+\end{tikzpicture}
+\caption{Distribución del postulado de iguales probabilidades}
+\label{fig:PEAPP}
+\end{figure}
+
+%---------------
+
+
+Ahora un concepto importante, son los \textbf{eventos mutuamente excluyentes}, lo cual nos dice lo siguiente.
+
+\begin{equation*}
+    A\cap B = \{ \emptyset \} \rightarrow P(A\cap B) = 0
+\end{equation*}
+
+\subsubsection{Probabilidad condicional}
+
+La probabilidad condicional no da una forma de asignar probabilidades a eventos \textbf{dependientes} de otros, es decir, se considera un evento $A$ i y un evento $B$ la probabilidad de que suceda $A$ debido a que sucede $B$ está dado por lo siguiente.
+
+\begin{equation}
+    P(A\mid B) = \frac{P(A\cap B)}{P(B)}
+    \label{eq:ProbaCondicional}
+\end{equation}
+
+La ecuación \eqref{eq:ProbaCondicional}, se puede reescribir como $P(A\cap B) = P(A\mid B)P(B)$. Por otro lado, también, con base en \eqref{eq:ProbaCondicional} se puede definir la probabilidad inversa.
+
+\begin{equation}
+    P(B\mid A) = \frac{P(A\cap B)}{P(B)}
+    \label{eq:ProbaInversa}
+\end{equation}
+
+De esta manera se puede notar algo, si la ecuación \eqref{eq:ProbaInversa} de igual forma la reescribimos como $P(A\cap B) = P(B\mid A) P(B)$, entonces las ecuaciones \eqref{eq:ProbaCondicional} y \eqref{eq:ProbaInversa}, se pueden igualar, y esto nos lleva a un resultado muy importante llamado el \textbf{teorema de Bayes o fórmula de Bayes.}
+
+\begin{tcolorbox}[colback=mycafeF!5!white,colframe=mycafeF,title=\textbf{Teorema de Bayes}]
+
+\begin{equation}
+    P(A\mid B) = \frac{P(A)}{P(B)}P(B\mid A)
+    \label{eq:TeoBayes}
+\end{equation}
+
+Esto se puede ver como un sistema de causas y consecuencias
+    
+\end{tcolorbox}
+
+Hay algo importante a notar, y es ¿por qué definir $P(A\mid B)$ en términos de $P(B\mid A)$ y no al revés?\footnote{Notar que $P(A\mid B) \neq P(B\mid A)$} y la respuesta es por la facilidad la probabilidad condicional, es más fácil conocer $P(B\mid A)$ que conocer $P(A\mid B)$, y con la finalidad de que quede más claro esta afirmación se tomara el ejemplo de  enfermedad y síntomas.
+
+Definimos lo siguiente.
+
+\begin{align*}
+    A:&\text{Enfermedad}&(X)\\
+    B:& \text{Sintomas}&(S)
+\end{align*}
+
+Ahora con esta información se puede sustituir en el teorema de Bayes \eqref{eq:TeoBayes}, y se obtiene lo siguiente.
+
+\begin{equation}
+    P(X\mid S) = \frac{P(X)}{P(S)}P(S\mid X)
+    \label{eq:BayesEnfermedad}
+\end{equation}
+
+Entonces la ecuación \eqref{eq:BayesEnfermedad} no dice que la probabilidad de que tengamos una enfermedad, dado que tenemos ciertos síntomas($P(X\mid S)$), es proporcional a la probabilidad de tener síntomas dado que tenemos cierta enfermedad $P(S\mid X)$. De esta manera se puede notar que es más fácil conocer $P(S\mid X)$, ya que si conocemos la enfermedad, se pueden conocer los síntomas; sin embargo, en el caso contrario $P(X\mid S)$ es más difícil, ya que los mismos síntomas que se presentan pueden coincidir con muchas más enfermedades.
+
+Y bueno, finalmente, de \eqref{eq:TeoBayes}, el término $P(A)/P(B)$ es conocimiento previo que se tiene.
+
+\subsubsection{Fórmula de completez de la probabilidad (o probabilidad total)}
+
+\begin{equation}
+    P(B) = \sum_{i=1}^NP(B\mid A_i)P(A_i)
+    \label{eq:ProbabilidadTotal}
+\end{equation}
+
+Sustituyendo la ecuación de la probabilidad total \eqref{eq:ProbabilidadTotal}, en el teorema de Bayes \eqref{eq:TeoBayes}, el teorema de Bayes se puede reescribir de la siguiente forma.
+
+\begin{equation}
+    P(A_i\mid B_k) = \frac{P(A_i)P(B_k\mid A_i)}{\sum_{i=1}^N P(B_k\mid A_i)P(A_i)}
+    \label{eq:Causa-Efecto}
+\end{equation}
+
+
+Esta forma del teorema de Bayes modela sistemas de causa-efecto, anteriormente se dio un ejemplo, sin embargo, en este caso son para $k$ enfermedades, con $i$ síntomas.
+
+\begin{figure}[!ht]
+    \centering
+    \scalebox{1.5}{\input{Graficos/Enfer-Sinto}}
+    \caption{Esquema de enfermedades y síntomas, con el modelo de causa consecuencia.}
+    \label{fig:Diagrama-Enf-Sin}
+\end{figure}
+
+En la Figura \ref{fig:Diagrama-Enf-Sin} se esquematiza un sistema con $i$ enfermedades, dadas por $x_i$ y $k$ síntomas, dados por $s_k$, en el esquema se presentan como si estuvieran cada una de las enfermedades unidas a todos los síntomas; sin embargo, en la realidad puede haber excepciones.\footnote{Como comentario, este tipo de modelos de causa-efecto, es la base de las redes bayesianas.}
+
+\subsection{Distribuciones de probabilidad.}
+
+
+A toda variable aleatoria se le asocia una función de distribución de probabilidad \footnote{ También se le conoce como \textit{función de masa de probabilidad o función de densidad}}, esta función siempre existe, y esta, relaciona una probabilidad de que una variable aleatoria $X$ adquiera un valor $x$ y se representa de la siguiente manera.
+
+\begin{equation*}
+    f(x) = p(x) = P(X = x)
+\end{equation*}
+
+Además esta función debe cumplir las siguientes dos condiciones.
+
+\begin{enumerate}
+    \item $p(x) \geqslant  0$
+    \item $\sum_x p(x) = 1$
+\end{enumerate}
+
+La primera condición, nos dice que la probabilidad de que cierta variable aleatoria tome el valor $x$, no puede ser menor que cero, y la segunda condición nos dice que la suma de la probabilidades, de todos los valores $x$ que pueda adquirir la variable aleatoria debe ser $1$, en caso de que no cumpla esta condición, puede que no este normalizado.
+
+Además otra interpretación importante es que $p(x)dx$ es la probabilidad de que $X\in [x,x+dx]$, de esto se puede obtener lo siguiente.
+
+\begin{equation}
+	P(a\leq X \leq b) = \int_a^b p (x)dx
+\end{equation}
+
+que es la probabilidad de que $X\in [a,b]$
+
+\subsection{Distribución acumulativa.}
+
+Para poder introducir el concepto de distribución acumulativa, se define una función de una variable aleatoria $X$ la cual esta definida en el intervalo de  $[0,1] \in \mathbb{R}$.
+
+\begin{equation}
+	F(x) = P(X\geq x) = \sum_{x_i\geq x}p(x_i)
+\end{equation}
+
+Esta función lo que nos da la probabilidad de que la variable aleatoria $X$ adquiera valores menores o igual a $x$, donde $x$ esta bien definido, con esto también se nota que esta función es la suma de las probabilidades menores o iguales a $x$.\footnote{Cuando sea necesario especifica de que variable aleatoria se habla, o se esta calculando tanto la función de distribución de probabilidad, como la acumulativa, la notación que se emplea es $f_X(x)$ y $F_X(x)$ respectivamente.}
+
+De igual forma que en la distribución de probabilidad se puede considerar el caso continuo en lugar de la forma discreta, de la siguiente forma.
+
+\begin{equation}
+	P(X\geq x) = \int_{-\infty}^x p(x')dx'
+\end{equation}
+
+de esta forma tambien se puede definir el caso conrario.
+
+\begin{equation}
+	P(X\leq x) = 1 - P(X\geq x)
+\end{equation}\footnote{Algo importante a mencionar es que esta igualdad solo es valida para variables aleatorias.}
+
+Esta ultima igualdad es posible, ya que si lo notamos, las condiciones de ambas funciones (distribución probabilidad y acumulativa), cumplen los axiomas de probabilidad \ref{eq:AxiomasProba} propuestos por \textbf{Kolmogorov}.
+
+\begin{figure}[!ht]
+    \centering
+    \scalebox{1}{\input{Graficos/DistrGaussian}}
+    \caption{Distribución Gaussiana, la parte parte con relleno corresponde a $P(X\leq x)$, y la parte que no tiene relleno corresponde $P(X\geq x)$.}
+    \label{fig:Diagrama-Enf-Sin}
+\end{figure}
+
+
+Todas las variables aleatorias tienen medidas, que nos ayudan a describir algunos comportamientos de estas, de los cuales los siguientes son valores típicos, o características numéricas.
+
+\begin{itemize}
+	\item Valor más probable $x^*$: corresponde al máximo valor de $P(x)$.
+	\item Mediana $x_{med}$ 
+	\item Media: $m = \langle x \rangle = \int x p(x)dx$
+	\item Desviación estándar $\rightarrow$ Volatilidad.
+\end{itemize}
+
+Algo importante a mencionar es acerca del ultimo punto, desviación estándar, es una medida estadística, que nos indica que tan dispersos están los datos del valor medio (o media), sin embargo finanzas esta medida también se entiende como volatilidad, ya que si un activo, tiene una rentabilidad con una desviación estándar alta, su volatilidad es alta, lo cual no lleva a decir que es un activo con riesgo alto.
+
+Además estas medidas también nos sirven para calcular una medida que también es relevante que son \textbf{fluctuaciones}, este concepto tiene relación con la variabilidad de los datos, que de igual forma que en el caso de la volatilidad no da una idea de la dispersión de los datos respecto al valor medio, sin embargo no son los mismos conceptos.
+
+Otras medidas importantes son las siguientes.
+
+\begin{itemize}
+	\item Desviación media absoluta (MAD)
+	\begin{equation}
+		E_{abs} = \int \mid x - x_{med}\mid p(x) dx
+	\end{equation}
+	\item Varianza
+	\begin{equation}
+		\sigma^2 = \langle (x-\langle x\rangle)^2\rangle = \int (x-\langle x\rangle)^2 p(x)dx
+	\end{equation}
+	\item Momentos de orden superior \footnote{Los momentos es la forma más general de medidas estadísticas, que sirven para estudiar las distribuciones de probabilidad.}
+	
+	\begin{equation}
+		m_n = \langle x^n \rangle = \int x^n p(x) dx
+	\end{equation}
+	$m_n$ existe si $p(x)$ decrece lo suficientemente rápido cuando $|x|\to \infty$
+\end{itemize}
+
+
+\subsection{Función característica.}
+
+Si consideramos $p(x)$, se define a la función característica, como la \textbf{transformada de Fourier} de la distribución de probabilidad $p(x)$, además la función característica existe para cualquier distribución de probabilidad.
+
+\begin{tcolorbox}[colback=mycafeF!5!white,colframe=mycafeF,title=\textbf{Función Característica}]
+\begin{equation}
+    \phi(t) = \int e^{itx}p(x)dx = E(e^{itx})
+    \label{eq:FunCaracteristica}
+\end{equation}
+
+De igual forma se puede construir la distribución de probabilidad partiendo de la función característica, con la transformada inversa de Fourier.
+
+\begin{equation}
+	p(x) = \frac{1}{2\pi} \int e^{-itx} \phi(t) dt
+\end{equation}
+    
+\end{tcolorbox}
+\begin{itemize}
+	\item Momento
+Ahora hacemos la siguiente consideración, $\phi(t) = \hat{p}(t)$, entonces podemos definir el $n-esimo$ momento, mediante la función característica.
+
+\begin{equation}
+	m_n = (-i)^n \frac{d^n}{dt^n}\hat{p}(t)\mid_{t=0}
+\end{equation}
+donde $\hat{p}(0) = 1$
+	\item Momentos acumulados.
+	\begin{equation}
+		c_n = (-i)^n \frac{d^n}{dt^n}\log\hat{p}(t)\mid_{t=0}
+	\end{equation}
+	\item Momentos acumulados normalizados.
+	\begin{equation}
+		\lambda_n = \frac{c_n}{\sigma^n}
+	\end{equation}
+	Donde $\sigma$ corresponde a la desviación.
+
+\end{itemize}
+
+Los momentos acumulados normalizados son lo que nos van ayudar a describir las distribuciones de probabilidad, dicho de otra forma, estos momentos nos ayudaran a estudiar los datos, con comportamiento aleatorio. Por tal motivo se presenta los cuatro primeros momentos acumulados normalizados.
+
+\begin{align}
+	\lambda_1 =& m & \text{Promedio}\\
+	\lambda_2 =& \frac{\sigma^2}{\sqrt{m}} & \\
+	\lambda_3 =& \xi = \frac{\langle(x-m)^3\rangle}{\sigma^3} & \text{Skweness}\\
+	\lambda_4 =& \kappa = \frac{\langle (x-m)^4\rangle}{\sigma} - 3 & \text{Kurtosis}
+\end{align}\footnote{En algunos textos, al promedio, también conocido como valor medio se representa por $\mu$, esto es debido a que los momentos en general se representan como $\mu_n$.}
+
+Ahora ¿qué nos dicen estas medidas?.
+Para el caso del promedio, lo que nos da, es el valor más probable de una distribución de probabilidades.
+El segundo momento, corresponde a la varianza, este valor nos indica la dispersión de los datos, alrededor del valor medio (promedio), anteriormente mencionamos la desviación estándar que de igual forma nos da la medida, y no es nada extraño, ya que la desviación estándar es la raíz cuadrada de la varianza.
+El tercer momento, nos da una medida de la asimetría de la distribución de probabilidad $p(x)$.
+
+Finalmente, el cuarto momento, nos da una forma de calcular que tanto se desvían la cola de $p(x)$, respecto una distribución gaussiana\footnote{Se considera una distribución gaussiana como referencia, ya que esta distribución es simétrica, es decir, $\lambda_3 = 0$, al igual que $\lambda_4 = 0$}
+
+Una condición necesaria, para que exista el momento $n-esimo$ es que $p(x)$ decaiga más rápido que $|x|^{-n-1}$ cuando $|x| \to \infty$, con lo cual tenemos que
+
+$$p(x) \sim |x|^{-n-1}\rightarrow \text{Comportamiento como ley de potencia } (n+1)$$
+
+Las \textbf{transiciones de fase} es concepto muy usado en la física, aun que no exclusivamente para la física, además este mecanismo da lugar a un comportamiento como ley de potencia.
+
+Una de sus propiedades significativas sobre este tipo de distribuciones, es que es invariante sobre transformaciones de escala.
+
+\begin{equation}
+	f(x) = Ax^\gamma
+\end{equation}
+
+Que al aplicar una trasformación de escala se obtiene lo siguiente.
+
+\begin{equation}
+	f(\alpha x) = A \alpha^\gamma x^\gamma = \beta f(x)
+\end{equation}
+
+
+Esto implica un comportamiento fractal o de auto-similitud, además algo importante a mencionar es que para el caso en el que el comportamiento se $f(x) = Ax^\gamma$, las medidas $\langle x \rangle \text{ y } \sigma^2$ son medidas no representativas, con lo cual es necesario explorar con otras medidas.
+
+\subsection{Teorema del limite central}
+\subsubsection{Distribución Gaussiana (Normal).}
+
+
+La distribución Gaussiana, es de las distribuciones de probabilidad de mayor importancia, ya que esta sale en resultados importantes como lo es \textbf{Teorema del limite central.}
+
+Sea $X$ una variable aleatoria continua, se dice que esta variable aleatoria tiene una distribución normal si su función de densidad es de la siguiente forma.
+
+\begin{equation}
+	f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} e^{-(x-\mu)^2/2\sigma^2}
+\end{equation}
+
+Donde $\mu \in \mathbb{R}$ y $\sigma^2 > 0$, estos dos parámetros nos indica que $\mu$ corresponde al valor medio de la distribución de probabilidad, que de igual manera se puede interpretar como que la función de densidad esta centrada en $\mu$ y por otro lado, el parámetro $\sigma^2$ corresponde a la varianza de la función de densidad, este valor, como ya anteriormente se abordo, nos da una medida de dispersión de los datos, de manera más empírica, que tan ancha es la gráfica de la función de densidad de probabilidad.
+
+
+\begin{figure}[!ht]
+    \centering
+    \begin{subfigure}{0.48\textwidth}
+    \centering
+    \scalebox{1}{\input{Graficos/DistribuciónGaussiana}}
+    \caption{Representación de las dos medidas de una distribución Gaussiana.}
+    \label{fig:MedidasGauss}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+    \centering
+    \scalebox{1}{\input{Graficos/DistriGaussianIntervalSigma}}
+    \caption{Los distintos intervalos de $\sigma$.}
+    \end{subfigure}
+    \caption{Función de densidad de probabilidad Gaussiana, con representación de $\sigma$.}
+    \label{fig:GaussInterval}
+\end{figure}
+
+Como anteriormente se menciono la distribución normal cuenta con dos medidas estadísticas.
+
+\begin{align}
+	\mu=& \langle x\rangle & \text{Promedio}\\
+	\sigma^2=& \langle (x-\mu)^2\rangle& \text{Varianza}
+\end{align}
+
+Mientras que momentos de ordenes mayores es igual a cero.
+
+Además algo importante a destacar, es que como se muestra en la Figura \ref{fig:GaussInterval}(b), existen distintos intervalos, y dependiendo que intervalo se considere se tendrá cierto porcentaje de los datos.
+Si consideramos los siguientes intervalos
+
+\begin{itemize}
+	\item $-\sigma \leq x \leq \sigma$ 
+	El porcentaje de probabilidad de encontrar datos con valores dentro de ese intervalo, es del $68\%$.
+	\item $-2\sigma \leq x \leq 2\sigma$
+	Del mismo modo, el porcentaje que le corresponde a este intervalo es de $95\%$.
+	\item $-3\sigma\leq x\leq 3\sigma$
+	De igual forma, el porcentaje para este intervalo es de $99.7\%$
+\end{itemize} 
+
+
+De esta manera tiene mayor sentido cuando se dice que tanto, la desviación estándar, como la varianza corresponden a la dispersión de los datos.\footnote{El porcentaje que se obtiene para cada uno de los intervalos, se obtiene mediante distribución acumulativa.}
+
+Algo importante, es que la función de densidad $f(x)$ generalmente se representar como $N(\mu,\sigma^2)$.
+
+Ahora bien, la razón por la que se le da particular importancia a la distribución Gaussiana,se relaciona con el \textbf{teorema del limite central.}
+
+\begin{tcolorbox}[colback=mycafeF!5!white,colframe=mycafeF,title=\textbf{Teorema del limite central (CLT).}]
+Sea $X_1,X_2,\dots,X_n$, variables aleatorias, las cuales son independiente, y además con la misma distribución de probabilidad.
+\begin{equation}
+	\frac{X_1+\cdots + X_n - n\mu}{\sqrt{n}\sigma}\overset{d}{\to} N(0,1)
+    \label{eq:CLT}
+\end{equation}
+
+    
+\end{tcolorbox}
+
+Se puede ver que del CLT \ref{eq:CLT}, se puede reescribir de la siguiente manera.
+
+\begin{equation*}
+	\frac{(X_1+\cdots+X_n)/n - \mu}{\sigma / \sqrt{n}}
+\end{equation*}
+
+Donde se puede notar que $X_1+\cdots + X_n/n$ corresponde al promedio, con lo cual se puede reescribir como.
+
+\begin{equation*}
+	\frac{\bar{X}_n - \mu}{\sigma / \sqrt{n}}
+\end{equation*}
+
+De esta manera se puede interpretar de mejor manera el CLT, el cual nos dice de manera menos abstracta, si consideramos $m$ muestras, con tamaños $n$ esta debe ser grande, al igual que $m$,  regularmente se recomienda que el tamaño de muestra sea $m\geq 50$, y se calcula el promedio de estas muestra, con los promedios de las muestras son las que siguen una distribución Gaussiana.
+
+\begin{figure}[!ht]
+    \centering % Centrado general de la figura
+    \begin{subfigure}{0.45\textwidth} % Aumentar el ancho
+        \centering
+        \resizebox{\linewidth}{!}{\input{Graficos/DistribuciónExpo}} % Escalar proporcionalmente
+        \caption{Distribución Exponencial con $\lambda=1$.}
+        \label{fig:DisExpo}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \resizebox{\linewidth}{!}{\input{Graficos/TeoLimCentr}} % Escalar proporcionalmente
+        \caption{Teorema de límite central.}
+        \label{fig:TLC}
+    \end{subfigure}
+    \caption{Demostración del teorema del límite central.}
+    \label{fig:CLT}
+\end{figure}

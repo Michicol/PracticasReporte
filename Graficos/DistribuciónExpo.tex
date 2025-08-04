@@ -1,0 +1,26 @@
+% Gráfico 1: Distribución Exponencial
+\begin{tikzpicture}
+\begin{axis}[
+    title={Distribución Exponencial ($\lambda=1$)},
+    xlabel={$x$},
+    ylabel={Densidad},
+    width=10cm,
+    height=6cm,
+    grid=major,
+    grid style={dashed, gray!30},
+    legend pos=north east,
+    ymin=0,
+    xmin=0,
+    xmax=5
+]
+% Histograma (agregar col sep=comma)
+\addplot [ybar, bar width=0.05, fill=blue!30, draw=blue] 
+    table [col sep=comma, x=x, y=y] {Graficos/datos/exponential_hist.dat};
+\addlegendentry{Histograma}
+
+% KDE (agregar col sep=comma)
+\addplot [red, thick] 
+    table [col sep=comma, x=x, y=y] {Graficos/datos/exponential_kde.dat};
+\addlegendentry{KDE}
+\end{axis}
+\end{tikzpicture}

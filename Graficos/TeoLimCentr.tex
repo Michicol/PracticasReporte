@@ -1,0 +1,31 @@
+% Gráfico 2: Distribución de Medias
+\begin{tikzpicture}
+\begin{axis}[
+    title={Distribución de Medias (Teorema del Límite Central)},
+    xlabel={$\bar{x}$},
+    ylabel={Densidad},
+    width=10cm,
+    height=6cm,
+    grid=major,
+    grid style={dashed, gray!30},
+    legend pos=north east,
+    ymin=0,
+    xmin=0.8,
+    xmax=1.2
+]
+% Histograma (agregar col sep=comma)
+\addplot [ybar, bar width=0.005, fill=green!30, draw=green] 
+    table [col sep=comma, x=x, y=y] {Graficos/datos/normal_hist.dat};
+\addlegendentry{Histograma}
+
+% KDE (agregar col sep=comma)
+\addplot [red, thick] 
+    table [col sep=comma, x=x, y=y] {Graficos/datos/normal_kde.dat};
+\addlegendentry{KDE}
+
+% Curva normal teórica
+\addplot [blue, thick, dashed, domain=0.8:1.2, samples=100] 
+    {1/(0.0316*sqrt(2*pi))*exp(-(x-1)^2/(2*(0.0316)^2))};
+\addlegendentry{Normal teórica}
+\end{axis}
+\end{tikzpicture}

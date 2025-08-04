@@ -1,0 +1,18 @@
+\chapter*{Introducción}
+\label{cap:intro}
+
+\section{Motivación}
+
+Si consideramos $N$ variables aleatorias $x_i, \quad i = 1,\dots, N$, de las cuales es de nuestro interés saber las correlaciones entre las $x_{i's}$, de esta manera hacemos $M$ observaciones, con lo cual se puede construir una \textbf{matriz de correlación}
+
+\begin{equation}
+   X = 
+    \begin{bmatrix}
+        x_{11} & x_{12} & x_{13}& \cdots & x_{1M}\\
+        x_{21} & x_{22} & x_{23}& \cdot & x_{2M}\\
+        \vdots & \vdots & \vdots & \ddots & \vdots\\
+        x_{N1} & x_{N2} & x_{N3} & \cdots & x_{NM}
+    \end{bmatrix}
+\end{equation}
+
+Sin embargo, para eso no conocemos a $P(x_1,x_2,\dots, x_N)$ que corresponde a las \textbf{distribuciones de probabilidades}. Y algo importante aquí, es que se requiere que para cada $P(x_i)$ sea estacionaria, lo cual implica que $P(x_i)$ es invariante ante traslaciones.
