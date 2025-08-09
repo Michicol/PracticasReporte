@@ -9,6 +9,7 @@
 \usepackage{graphicx}
 \usepackage{subcaption} % Para subfiguras
 \usepackage {mwe}% or load ’ graphicx ’ and ’ b l ind tex t ’ manually
+\usepackage{physics}
 %--------------Para graficos--------------
 \usepackage{tikz}
 \usetikzlibrary{babel}
@@ -22,8 +23,6 @@
 %----------------------------------------
 
 \usepackage[hidelinks]{hyperref}
-\usepackage[backend=biber, style=apa]{biblatex}
-\addbibresource{referencias.bib}
 
 %Recuadros de colores
 \usepackage{xcolor}
@@ -43,6 +42,7 @@
 %\definecolor{migreen}{HTML}{35DB9A} 
 %\tcbset{colback=myblue, colframe=blue!75!black, boxsep=5pt, arc=4pt, boxrule=1pt}
 
+
 % Integración con Gnuplot
 
 
@@ -58,11 +58,14 @@
 \newtheorem{teorema}{Teorema}[chapter]
 \newtheorem{definicion}{Definición}[section]
 \newtheorem{ejemplo}{Ejemplo}[section]
+\usepackage[backend=biber, style=apa]{biblatex}
+\addbibresource{referencias.bib}
 
 % Metadatos
 \title{Notas Practicas profesionales.}
 \author{Luis Clemente Michicol Martinez}
 \date{\today}
+
 
 \begin{document}
 
@@ -79,12 +82,14 @@
 \part{Repaso Probabilidad y estadística.}
 \include{capitulos/introduccion}
 \include{capitulos/capitulo1}
+%\part{Teoría de matrices aleatorias.}
 %\include{capitulos/capitulo2}
 
 %\appendix
 %\include{apendices/apendiceA}
 
 \backmatter
+%\nocite{*}
 \printbibliography[title=Referencias Bibliográficas]
 \include{indices}
 

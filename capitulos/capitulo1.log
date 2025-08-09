@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2025.7.2)  3 AUG 2025 22:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2025.7.2)  8 AUG 2025 20:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -987,7 +987,7 @@ Overfull \hbox (5.43053pt too wide) in paragraph at lines 16--17
 
 ! Undefined control sequence.
 l.20 \section
-             {Descripción probabilística.}
+             {Descripción probabilista.}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1002,7 +1002,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.20 \section{D
-               escripción probabilística.}
+               escripción probabilista.}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -1024,20 +1024,14 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no i in font nullfont!
 Missing character: There is no l in font nullfont!
+Missing character: There is no i in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no t in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no c in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no . in font nullfont!
 
 Overfull \hbox (25.00002pt too wide) in paragraph at lines 20--21
 []\/cmr/m/n/10 ^^So
- []
-
-
-Overfull \hbox (2.77779pt too wide) in paragraph at lines 20--21
-\/cmr/m/n/10 ^^S^^P 
  []
 
 
@@ -1808,7 +1802,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.41 U
-      na vez dado los anteriores conceptos, uno se puede preguntar cómo se ...
+      na vez dado los anteriores conceptos, uno se puede preguntar ¿cómo s...
 
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -2099,8 +2093,8 @@ Overfull \hbox (20.0pt too wide) in paragraph at lines 41--42
  []
 
 
-Overfull \hbox (5.00002pt too wide) in paragraph at lines 41--42
-\/cmr/m/n/10 ^^So
+Overfull \hbox (9.72224pt too wide) in paragraph at lines 41--42
+\/cmr/m/n/10 ?`^^So
  []
 
 
@@ -3743,8 +3737,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.65 \begin{enumerate}
-                      
+l.64 
+     
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
@@ -3753,8 +3747,8 @@ or  <return>  to continue without it.
 ! Undefined control sequence.
 <write> \newlabel{cap:cap1}{{}{\thepage 
                                         }}
-l.65 \begin{enumerate}
-                      
+l.64 
+     
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -8090,5 +8084,5 @@ Here is how much of TeX's memory you used:
  20546 multiletter control sequences out of 15000+600000
  512595 words of font info for 33 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 28i,6n,32p,602b,142s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 24i,5n,32p,602b,125s stack positions out of 10000i,1000n,20000p,200000b,200000s
 !  ==> Fatal error occurred, no output PDF file produced!

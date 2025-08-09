@@ -17,7 +17,7 @@ Si se quiere profundizar con mayor formalidad se puede buscar en la siguiente re
 
 %\newpage
 
-\section{Descripción probabilística.}
+\section{Descripción probabilista.}
 
 Se define el \textbf{conjunto de resultados fundamentales}\footnote{También es conocido como \textbf{espacio muestral}} como.
 
@@ -38,7 +38,7 @@ Donde cada subconjunto se puede renombrar quedando de la siguiente manera.
     \mathcal{E} = \{\mathcal{E}_1,\mathcal{E}_2,\dots,\mathcal{E}_n\}
 \end{equation*}
 
-Una vez dado los anteriores conceptos, uno se puede preguntar cómo se puede asignar probabilidades a eventos?. Y aquí es donde entran tres tipos de enfoques, \textbf{clásico},\textbf{geométrico},\textbf{frecuentista} \textbf{subjetiva} y  \textbf{axiomático}, de los cuales se hablara únicamente de los enfoques frecuentistas, se puede ver el texto de \cite{RinconIntro}, para tener información acerca de los enfoques que no se abordan.
+Una vez dado los anteriores conceptos, uno se puede preguntar ¿cómo se puede asignar probabilidades a eventos?. Y aquí es donde entran tres tipos de enfoques, \textbf{clásico},\textbf{geométrico},\textbf{frecuentista} \textbf{subjetiva} y  \textbf{axiomático}, de los cuales se hablara únicamente de los enfoques frecuentistas, se puede ver el texto de \cite{RinconIntro}, para tener información acerca de los enfoques que no se abordan.
 
 \subsection{Enfoque Frecuentista}
 
@@ -439,7 +439,7 @@ Algo importante, es que la función de densidad $f(x)$ generalmente se represent
 Ahora bien, la razón por la que se le da particular importancia a la distribución Gaussiana,se relaciona con el \textbf{teorema del limite central.}
 
 \begin{tcolorbox}[colback=mycafeF!5!white,colframe=mycafeF,title=\textbf{Teorema del limite central (CLT).}]
-Sea $X_1,X_2,\dots,X_n$, variables aleatorias, las cuales son independiente, y además con la misma distribución de probabilidad.
+Sea $X_1,X_2,\dots,X_n$, variables aleatorias, las cuales son independiente, y además con la misma distribución de probabilidad.\footnote{Se puede ver con más profundidad en el libro \cite{RincónInterm}, de este mismo se extrajo esta información.}
 \begin{equation}
 	\frac{X_1+\cdots + X_n - n\mu}{\sqrt{n}\sigma}\overset{d}{\to} N(0,1)
     \label{eq:CLT}
@@ -480,3 +480,124 @@ De esta manera se puede interpretar de mejor manera el CLT, el cual nos dice de 
     \caption{Demostración del teorema del límite central.}
     \label{fig:CLT}
 \end{figure}
+
+Para la Figura \ref{fig:CLT} se usa la distribución exponencial con $\lambda=1$, para generar $10,000$ muestras, cada muestra tiene un tamaño de $1,000$,una muestra es la que se observa en la Figura \ref{fig:DisExpo}, al generar los promedios de cada una de las muestras y generar su histograma se obtiene Figura \ref{fig:TLC}, esta misma se puede observar las funciones de distribución, tanto de los datos experimentales, como el de la normal de forma teórica.
+
+\subsubsection{Distribución Log-Normal.}
+
+La distribución log-normal  se construye a partir de una variable aleatoria con distribución normal. Es decir, sea $X$ una variable aleatoria con distribución $N(\mu,\sigma^2)$, y consideramos $Y = e^X$, se dice que la variable aleatoria $Y$ tiene una distribución log-normal con $(\mu,\sigma^2$,con lo cual su función de densidad es de la siguiente forma.
+
+\begin{equation}
+	f(y) = 
+	\begin{cases}
+		\frac{1}{y\sqrt{2\pi\sigma^2}} exp\left( \frac{(\ln y-\mu)^2}{2\sigma^2}\right) & \text{si } y > 0\\
+		0 & \text{si } y\leq 0
+	\end{cases}
+\end{equation}
+
+\begin{figure}[!ht]
+    \centering
+    \scalebox{1}{\input{Graficos/DistrLogNormal}}
+    \caption{Distribución Log-Normal con $\mu = 3$, $\sigma^2 = 2$\protect\footnotemark}
+    \label{fig:DisLogNormal}
+\end{figure}
+
+\footnotetext{Esta grafica se replico del libro \fullcite{RincónInterm}}
+\subsection{Descripción probabilista multivariable.}
+Para comenzar a hablar acerca de la función de distribución conjunta, se tiene que introducir el concepto de vector aleatorio, el cual de manera poco rigurosa se trata de una colección de variables aleatorias. 
+
+También se puede entender como una función multivariada, la cual lleva elementos de espacio muestral al espacio $\mathbb{R}^n$.
+
+\begin{equation}
+	\mathbf{X} : \Omega \to \mathbb{R}^n
+\end{equation}
+
+Es decir $\mathbf{X} = (X_1,\cdots, X_2)$, donde cada componente que conforma este vector es una variable aleatoria de igual manera.
+
+\subsubsection{Función de distribución conjunta.}
+
+Se entiende como una función que nos lleva de $\mathbb{R}^n \to [0,1]$, es decir.
+
+Para simplificar las cosas, se considera únicamente el caso de $\mathbb{R}^2$, si se quiere indagar más \cite[Véase][p. 148]{RincónInterm}.
+
+\begin{equation}
+	F(x,y) = P(X\leq x, Y\leq y)
+\end{equation}
+
+Esta función es la probabilidad de que le vector aleatorio $(X,Y)$ tome valores dentro del rectángulo descrito por el siguiente producto cartesiano $(-\infty,x]\times(-\infty,y]$.
+\subsubsection{Función de probabilida conjunta.\protect\footnotemark}
+\footnotetext{Tambien conocida como \textbf{densidad conjunta}.}
+
+En \cite[Véase][p. 43]{Gut2007}, se define a la función de probabilidad conjunta de la siguiente manera.
+
+\begin{equation}
+	f_\mathbf{X}(\mathbf{x}) = p_\mathbf{X}(\mathbf{x}) = P(\mathbf{X}=\mathbf{x})
+	\protect\footnotemark
+\end{equation}
+\footnotetext{Aquí $\mathbf{X}$ y $\mathbf{x}$ representan vectores aleatorios}
+
+
+Es importante mencionar que esta definición es valida para vectores discretos, y además debe cumplir, al igual que en el caso funciones univariadas \footnote{Para funciones de distribuciones unidimensionales, bidimensionales, o multidimensional, se les llama, univariada, bivariada y multivariada, respectivamente.}, dos propiedades importante.
+
+\begin{enumerate}
+	\item $f_\mathbf{X}(\mathbf{x}) \geq 0$
+	\item $\sum_\mathbf{x}f_\mathbf{X}(\mathbf{x}) = 1$
+\end{enumerate}
+
+Algo también importante a mencionar, es que a partir de la densidad conjunta se puede construir la función de distribución conjunta de la siguiente forma, se usa el caso bivarida.
+
+\begin{equation}
+	F(x,y) = P(X\leq x,Y\leq y) = \sum_{u\leq x}\sum_{v\leq y} f(u,v)
+\end{equation}
+
+Se puede apreciar que lo que se ha definido hasta ahora para el caso bivarida y multivariada, es similar al caso de univariada, ya que para construir la función de distribución conjunta, se construye similar a la función de distribución acumulativa.
+Ahora para el caso continuo, o para vectores aleatorios continuos, se define a la densidad conjunta como.
+
+\begin{equation}
+	f_\mathbf{X}(\mathbf{x}) = \frac{\partial^n F_\mathbf{X}(\mathbf{x})}{\partial x_1 \dots \partial x_n}
+\end{equation}
+
+y finalmente, del mismo modo que en el caso discreto, debe cumplir dos condiciones importantes.
+
+\begin{enumerate}
+	\item $f_\mathbf{X}(\mathbf{x}) \geq 0$
+	\item $\int_{-\infty}^\infty\cdots\int_{-\infty}^\infty f(x_1,\dots, x_n) dx\cdots dx_n = 1$
+\end{enumerate}
+
+Además se puede construir la función de distribución conjunta con la función de densidad conjunta de la siguiente forma.
+
+\begin{equation}
+	F(x,y) = \int_{-\infty}^x\int_{-\infty}^y f(u,v)dvdu
+\end{equation}
+
+\subsubsection{Distribuciones Marginales.}
+
+El concepto de \textbf{función de distribución marginal} ayuda a poder construir las funciones de distribuciones individuales de un vector aleatorio, suponga el vector aleatorio $(X,Y)$, para obtener ambas funciones de distribuciones de cada una de las variables se sigue este procedimiento.
+
+\begin{align}
+	F(x) =& \lim_{y\to \infty} F(x,y)& \text{Función de distribución marginal de } X\\
+	F(y) =& \lim_{x\to \infty} F(x,y)& \text{Función de distribución marginal de } Y
+\end{align}
+
+Con esto se llega al concepto de \textbf{función de densidad marginal}, los cuales se definen de la siguiente manera.
+
+\begin{align}
+	f(x) =& \int_{-\infty}^\infty f(x,y) dy &\text{Función de densidad marginal de } X\\
+	f(y) =& \int_{-\infty}^\infty f(x,y) dx &\text{Función de densidad marginal de } Y
+\end{align}
+
+\subsection{Independencia.}
+
+Para que se cumpla la independencia de dos variables aleatorias, por ejemplo $X$ y $Y$, son independientes si se cumple la igualdad.
+
+\begin{equation}
+	F_{X,Y}(x,y) = F_X(x)F_Y(y)
+\end{equation}
+
+De esta igualdad, se sigue que se cumple la siguiente igualdad.
+
+\begin{equation}
+	f_{X,Y}(x,y) = f_X(x)f_Y(y)
+\end{equation}
+
+De esta manera también se pueden se pueden construir las funciones de distribución conjuntas, si se conocen las funciones de distribuciones marginales, en esto se tiene que tener especial cuidado, ya que puede haber varias distribuciones conjuntas que den las distribuciones marginales dadas, es decir la distribuciones conjuntas que producen la distribuciones marginales no son únicas.

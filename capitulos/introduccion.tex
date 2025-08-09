@@ -16,3 +16,34 @@ Si consideramos $N$ variables aleatorias $x_i, \quad i = 1,\dots, N$, de las cua
 \end{equation}
 
 Sin embargo, para eso no conocemos a $P(x_1,x_2,\dots, x_N)$ que corresponde a las \textbf{distribuciones de probabilidades}. Y algo importante aquí, es que se requiere que para cada $P(x_i)$ sea estacionaria, lo cual implica que $P(x_i)$ es invariante ante traslaciones.
+
+\subsection{Correlaciones financieras.}
+
+Lo que se busca al hacer el estudio de estas matrices, es encontrar correlaciones entres acciones (o activos), con la finalidad de poder hacer inversiones, por ejemplo si consideramos el siguiente portafolio de inversión.
+
+\begin{equation}
+	\{x_1,x_2,\dots,x_n\}
+\end{equation}
+
+Entonces lo que se quiere encontrar son las correlaciones ente cada $x_i$ del portafolio de inversión.
+
+Ahora, la importancia de encontrar estas correlaciones es debido a que, lo que se busca, no es que las acciones estén correlacionadas, sino al contrario, que en la medida de lo posible estén descorrelacionados, esto debido a que si estuvieran correlacionadas o fuertemente correlacionadas, si pierde una acción todas las demás igual pierden, lo cual se quiere evitar.
+
+A lo anterior descrito se le conoce como un \textbf{portafolio bien diversificado}.
+
+Si regresamos a la matriz aleatoria $X$, y al hacer su diagonalización se obtienen los eigenvalores de la matriz $X$ dados por $\{\lambda_i\}$ los cuales están asociados a los eigenestados $\{\ket{\phi}\}$.
+
+Si obtenemos $\lambda_i$ demasiado grande esto implica $\ket{\phi}$ este relacionado con movimientos de grupos altamente correlacionados (mercados).
+
+\subsection{Sistema financiero (o mercado financiero).}
+
+Este sistema se compone por dos parte que interactuan de forma compleja, es decir, este tipo de interacciones, se modelan mediante sistemas complejos.
+
+\begin{itemize}
+	\item Instituciones financieras.
+	\item Agente financieros.
+\end{itemize}
+
+Las instituciones financieras son mediadoras entre los agentes financieros.
+
+Con lo cual, lo que se busca con el uso de las matrices aleatorias, es poder hacer un análisis estadístico de activos, de tal forma que se armen portafolios bien diversificados o lo que es equivalente, portafolios con activos descorrelacionados.
